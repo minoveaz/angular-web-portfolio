@@ -6,15 +6,15 @@ import { ItemComponent } from './pages/item/item.component';
 
 
 const app_routes: Routes = [
-    { path: '', component: PortfolioComponent},
+    { path: 'home', component: PortfolioComponent},
     { path: 'about', component: AboutComponent},
     { path: 'item', component: ItemComponent},
-    { path: '**', pathMatch: 'full', redirectTo: ''}
+    { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ]
 
 @NgModule({
     imports:[
-        RouterModule.forRoot( app_routes )
+        RouterModule.forRoot( app_routes, {useHash: true} )
     ],  
     exports:[
         RouterModule
