@@ -15,15 +15,17 @@ export class ProductsService {
     this.cargarProductos()
    }
 
-
-
-  private cargarProductos(){
+   private cargarProductos(){
     this.http.get('https://angular-html-c0d55.firebaseio.com/productos_idx.json')
     .subscribe( (resp: Producto[]) => {
       console.log(resp)
       this.productos = resp
       this.cargando = false
     })
+  }
+
+  getProducto( id: string){
+    return this.http.get(`https://angular-html-c0d55.firebaseio.com/productos/${id}.json`)
   }
 
 }
